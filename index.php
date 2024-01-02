@@ -9,22 +9,37 @@
     <script src="https://cdn.jsdelivr.net/npm/raphael@2.3.0/raphael.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/justgage@1.4.0/justgage.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        /* ui */
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="container">
-        <canvas id="temperatureChart"></canvas>
-        <canvas id="humidityChart"></canvas>
-        <canvas id="pressureChart"></canvas>
-        <div id="soilMoistureGauge"></div>
-        <div id="soilNutrientsGauge"></div>
+<body>
+    <div class="dashboard-window" id="temperatureWindow">
+        <h2>Temperature</h2>
+        <div class="parameter-value" id="temperatureValue">Loading...</div>
+    </div>
+
+    <div class="dashboard-window" id="humidityWindow">
+        <h2>Humidity</h2>
+        <div class="parameter-value" id="humidityValue">Loading...</div>
+    </div>
+
+    <div class="dashboard-window" id="pressureWindow">
+        <h2>Pressure</h2>
+        <div class="parameter-value" id="pressureValue">Loading...</div>
+    </div>
+
+    <div class="dashboard-window" id="moistureWindow">
+        <h2>Soil Moisture</h2>
+        <div class="parameter-value" id="moistureValue">Loading...</div>
+    </div>
+
+    <div class="dashboard-window" id="nutrientsWindow">
+        <h2>Soil Nutrients</h2>
+        <div class="parameter-value" id="nutrientsValue">Loading...</div>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            
             function fetchData(endpoint, callback) {
                 fetch(endpoint)
                     .then(response => response.json())
@@ -32,39 +47,42 @@
                     .catch(error => console.error('Error fetching data:', error));
             }
 
-            // temperature chart
-            function updateTemperatureChart(data) {
+            function updateWindow(id, parameter, value) {
+                const windowElement = document.getElementById(id);
+                const valueElement = windowElement.querySelector('.parameter-value');
+                valueElement.textContent = `${parameter}: ${value}`;
+            }
+
+            function updateTemperatureWindow(data) {
+                updateWindow('temperatureWindow', 'Temperature', data.value);
+            }
+
+            function updateHumidityWindow(data) {
+                updateWindow('humidityWindow', 'Humidity', data.value);
+                console.log("Humidity Data:", data);
+            }
+
+            function updatePressureWindow(data) {
+                updateWindow('pressureWindow', 'Pressure', data.value);
                 
             }
 
-            // humidity chart
-            function updateHumidityChart(data) {
-                
+            function updateMoistureWindow(data) {
+                updateWindow('moistureWindow', 'Soil Moisture', data.value);
             }
 
-            // pressure chart
-            function updatePressureChart(data) {
-                
+            function updateNutrientsWindow(data) {
+                updateWindow('nutrientsWindow', 'Soil Nutrients', data.value);
             }
 
-            // soil moisture gauge
-            function updateSoilMoistureGauge(data) {
-                
-            }
-
-            // soil nutrients gauge
-            function updateSoilNutrientsGauge(data) {
-               
-            }
-
-            // Fetch and update data every 30 seconds
             setInterval(function () {
-                fetchData('/api/temperature.php', updateTemperatureChart);
-                fetchData('/api/humidity.php', updateHumidityChart);
-                fetchData('/api/pressure.php', updatePressureChart);
-                fetchData('/api/soil_moisture.php', updateSoilMoistureGauge);
-                fetchData('/api/soil_nutrients.php', updateSoilNutrientsGauge);
-            }, 30000);
+                fetchData('temperature.php', updateTemperatureWindow);
+                fetchData('humidity.php', updateHumidityWindow);
+                fetchData('pressure.php', updatePressureWindow);
+                fetchData('soil_moisture.php', updateMoistureWindow);
+                fetchData('soil_nutrients.php', updateNutrientsWindow);
+            }, 300000);
+
         });
     </script>
 </body>
