@@ -148,9 +148,8 @@
             <p>&copy; 2024 - Rakibul Hasan Dihan</p>
         </div>
         <div class="footer-social">
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
             <a href="https://www.facebook.com/rakib.hasan.dihan" class="social-icon"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/rakibulhasandihan/" class="social-icon"><i class="fab fa-linkedin"></i></a>
         </div>
     </div>
 </footer>
