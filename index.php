@@ -22,7 +22,7 @@ d<!DOCTYPE html>
 
 <!-- Header -->
 <header>
-    <h1>Environmental Admin Dashboard</h1>
+    <h1>Admin Dashboard</h1>
 
 </header>
 
