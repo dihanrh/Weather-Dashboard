@@ -12,7 +12,7 @@ aside {
 }
 .combine{
     display: flex;
-    justify-content: space-around;
+    justify-content:space-evenly;
 }
 .nav-header {
     text-align: center;
@@ -102,6 +102,7 @@ aside {
 .table-container {
     overflow-x: auto;
     margin-top: 20px;
+    width: 35%;
 }
 
 #combinedTable {
