@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
         fetchData('server-side/pressure.php', updatePressureWindow);
         fetchData('server-side/soil_moisture.php', updateMoistureWindow);
         fetchData('server-side/soil_nutrients.php', updateNutrientsWindow);
-    }, 5000);
+    }, 30000);
 
 
 
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
           value: 65,
           min: 0,
           max: 100,
-          symbol: ' F',
+          symbol: '°F',
           pointer: true,
           gaugeWidthScale: 0.6,
           customSectors: [{
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
         var g3 = new JustGage({
           id: 'g3',
-          value: 40,
+          value: 400,
           min: 0,
           max: 10000,
           symbol: ' Pa',
@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
         var g4 = new JustGage({
           id: 'g4',
-          value: 70,
+          value: 40,
           min: 0,
           max: 100,
           symbol: ' %',
