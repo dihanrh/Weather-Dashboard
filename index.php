@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+d<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <script src ="nightMode.js"></script>
+    <script src="combineData.js"></script>
 </head>
 <body>
 
@@ -66,6 +67,8 @@
 
 <!-- Main Content -->
 <main>
+
+
     <div class="dashboard-window" id="temperatureWindow">
         <h2>Temperature</h2>
         <div class="parameter-value" id="temperatureValue">Loading...</div>
@@ -90,6 +93,23 @@
         <h2>Soil Nutrients</h2>
         <div class="parameter-value" id="nutrientsValue">Loading...</div>
     </div>
+    
+   <div class="combine">
+   <div class="table-container">
+    <title>Combined Data Table</title>
+
+    <table  id="combinedTable" >
+        <thead>
+        <tr>
+            <th>Parameter</th>
+            <th>Value</th>
+            <th>Timestamp</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
 
     <div class="wrapper">
         <!-- Temperature Gauge -->
@@ -137,9 +157,13 @@
             <div class="container">
                 <h3>Time</h3>
                 <div class="gauge" id="g6"></div>
-            </div>
-        </div>
+            </div>        
     </div>
+   </div>
+    
+</div>
+
+    
 </main>
 <!-- Footer -->
 <footer class="footer">
